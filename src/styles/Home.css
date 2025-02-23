@@ -1,6 +1,6 @@
 .hero-section {
-  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-    url('https://images.unsplash.com/photo-1545620783-54477366f341?w=1600&auto=format&fit=crop');
+  background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.55)),
+    url('./hero.jpeg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
