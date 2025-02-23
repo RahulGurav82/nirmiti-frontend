@@ -1,0 +1,12 @@
+.admin-container {
+  min-height: calc(100vh - 100px);
+}
+
+.MuiPaper-root {
+  overflow: hidden;
+}
+
+.MuiTableContainer-root {
+  max-height: 600px;
+  overflow-y: auto;
+}
