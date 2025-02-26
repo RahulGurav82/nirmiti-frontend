@@ -33,25 +33,27 @@ const Contact = () => {
               <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
                 <Phone color="primary" sx={{ mr: 2 }} />
                 <Typography>
-                  <Link href="tel:+919876543210" color="inherit">
-                    +91 98765 43210
+                  <Link href="tel:+919892306092" color="inherit">
+                    +919892306092
                   </Link>
                 </Typography>
               </Box>
               <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
                 <Email color="primary" sx={{ mr: 2 }} />
                 <Typography>
-                  <Link href="mailto:info@ayurcare.com" color="inherit">
-                    info@ayurcare.com
+                  <Link href="mailto:dr.nitinjadhav77mumbai@gmail.com" color="inherit">
+                    dr.nitinjadhav77mumbai@gmail.com
                   </Link>
                 </Typography>
               </Box>
               <Box sx={{ display: 'flex', alignItems: 'center' }}>
                 <LocationOn color="primary" sx={{ mr: 2 }} />
                 <Typography>
-                  123 Wellness Street, Health District
-                  <br />
-                  Mumbai, Maharashtra 400001
+                Shree Samartha Krupa Sanjeevan chikitsalay,
+                <br />             
+                14 - Laxmi Niwas, Agarkar Road, 
+                <br />
+                Dombivli East, 421201
                 </Typography>
               </Box>
             </Box>

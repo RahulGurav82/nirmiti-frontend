@@ -1,0 +1,76 @@
+import React from 'react';
+import { Grid, Card, CardContent, CardMedia, Typography, Box } from '@mui/material';
+
+const DoctorProfiles = () => {
+  const doctors = [
+    {
+      name: 'Dr. Nitin Jadhav',
+      specialization: 'Naturopathy Specialist',
+      experience: '30+ years experience',
+      image: 'https://res.cloudinary.com/dgu0acngm/image/upload/v1740560221/WhatsApp_Image_2025-02-24_at_7.54.01_PM_schpq8.jpg?w=900&auto=format&fit=crop&'
+  
+    },
+    {
+      name: 'Dr. Aditya Sharma',
+      specialization: 'Ayurvedic Physician',
+      experience: '15+ years experience',
+      image: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=800&auto=format&fit=crop'
+    },
+    {
+      name: 'Dr. Rajesh Kumar',
+      specialization: 'Ayurvedic Surgeon',
+      experience: '10+ years experience',
+      image: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=800&auto=format&fit=crop'
+    }
+  ];
+
+  return (
+    <Box sx={{ py: 6, backgroundColor: '#f5f5f5' }}>
+      <Typography
+        variant="h3"
+        component="h2"
+        align="center"
+        sx={{ mb: 4, fontWeight: 'bold', color: '#2c3e50' }}
+      >
+        Our Expert Doctors
+      </Typography>
+      <Grid container spacing={4} justifyContent="center">
+        {doctors.map((doctor, index) => (
+          <Grid item xs={12} sm={6} md={4} key={index}>
+            <Card sx={{ 
+              height: '100%', 
+              display: 'flex', 
+              flexDirection: 'column',
+              transition: '0.3s',
+              '&:hover': {
+                transform: 'translateY(-5px)',
+                boxShadow: '0 8px 16px rgba(0,0,0,0.2)'
+              }
+            }}>
+              <CardMedia
+                component="img"
+                height="450"
+                image={doctor.image}
+                alt={doctor.name}
+                sx={{ objectFit: 'cover' }}
+              />
+              <CardContent sx={{ flexGrow: 1, textAlign: 'center' }}>
+                <Typography gutterBottom variant="h5" component="h3" sx={{ fontWeight: 'bold' }}>
+                  {doctor.name}
+                </Typography>
+                <Typography variant="subtitle1" color="primary" sx={{ mb: 1 }}>
+                  {doctor.specialization}
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  {doctor.experience}
+                </Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+        ))}
+      </Grid>
+    </Box>
+  );
+};
+
+export default DoctorProfiles;

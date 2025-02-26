@@ -2,6 +2,7 @@ import React from 'react';
 import { Box, Container, Typography, Button, Grid, Card, CardContent, CardMedia, useTheme, useMediaQuery } from '@mui/material';
 import { Link } from 'react-router-dom';
 import '../styles/Home.css';
+import DoctorProfiles from '../components/DoctorProfiles';
 
 const Home = () => {
   const theme = useTheme();
@@ -9,19 +10,19 @@ const Home = () => {
 
   const features = [
     {
-      title: 'Traditional Treatments',
-      description: 'Experience authentic Ayurvedic treatments passed down through generations',
+      title: 'Sujok Therapy',
+      description: 'Sujok Therapy is an alternative healing system that combines acupressure, acupuncture, and other natural techniques to promote physical and mental well-being. Developed by South Korean scientist Prof. Park Jae Woo, "Sujok" comes from two ',
       image: 'https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?w=800&auto=format&fit=crop'
     },
     {
       title: 'Expert Consultation',
-      description: 'Get personalized advice from our experienced Ayurvedic practitioners',
+      description: 'Dr. Nitin Keshav Jadhav || M.D. ACCU, M.D. SUJOK (Korea), N.D. Asthag Hridayam, Reiki, D.S.A.C |||Several years in Ayurveda and alternative medicine, offering holistic treatments.Treating the root cause of ailments with personalized care.',
       image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&auto=format&fit=crop'
     },
     {
       title: 'Natural Remedies',
-      description: 'Pure and natural herbs and medicines for holistic healing',
-      image: 'https://images.unsplash.com/photo-1512069772995-ec65ed45afd6?w=800&auto=format&fit=crop'
+      description: 'Some natural remedies may be more affordable and accessible than conventional medicines, and many people prefer using them because they align with their personal health ideologies',
+      image: 'https://res.cloudinary.com/dgu0acngm/image/upload/v1740561070/WhatsApp_Image_2025-02-24_at_7.59.40_PM_frkzag.jpg?w=800&auto=format&fit=crop'
     }
   ];
 
@@ -85,43 +86,21 @@ const Home = () => {
         >
           Our Services
         </Typography>
-        <Grid container spacing={{ xs: 2, md: 4 }}>
+        <Grid container spacing={4} sx={{ mb: 8 }}>
           {features.map((feature, index) => (
-            <Grid item key={index} xs={12} sm={6} md={4}>
-              <Card 
-                className="feature-card"
-                sx={{
-                  height: '100%',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-                  '&:hover': {
-                    transform: 'translateY(-8px)',
-                    boxShadow: '0 8px 24px rgba(0,0,0,0.15)'
-                  }
-                }}
-              >
+            <Grid item xs={12} md={4} key={index}>
+              <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
                 <CardMedia
                   component="img"
-                  height={isMobile ? "200" : "240"}
+                  height="200"
                   image={feature.image}
                   alt={feature.title}
-                  sx={{ objectFit: 'cover' }}
                 />
-                <CardContent sx={{ flexGrow: 1, p: { xs: 2, md: 3 } }}>
-                  <Typography 
-                    gutterBottom 
-                    variant="h5" 
-                    component="h3"
-                    sx={{ fontWeight: '500' }}
-                  >
+                <CardContent sx={{ flexGrow: 1 }}>
+                  <Typography gutterBottom variant="h5" component="h2">
                     {feature.title}
                   </Typography>
-                  <Typography 
-                    variant="body1" 
-                    color="text.secondary"
-                    sx={{ lineHeight: 1.6 }}
-                  >
+                  <Typography>
                     {feature.description}
                   </Typography>
                 </CardContent>
@@ -129,6 +108,8 @@ const Home = () => {
             </Grid>
           ))}
         </Grid>
+
+        <DoctorProfiles />
       </Container>
     </div>
   );

@@ -37,7 +37,8 @@ const Appointment = () => {
     'Shirodhara',
     'Panchakarma',
     'Ayurvedic Massage',
-    'Consultation'
+    'Consultation',
+    'Ayursoukhyam'
   ];
 
   const handleChange = (e) => {

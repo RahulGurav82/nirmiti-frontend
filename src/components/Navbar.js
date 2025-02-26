@@ -36,10 +36,9 @@ const Navbar = () => {
     { title: 'Treatments', path: '/treatments', icon: <SpaIcon /> },
     { title: 'Health Tips', path: '/health-tips', icon: <HealthAndSafetyIcon /> },
     { title: 'First Aid', path: '/first-aid', icon: <MedicalServicesIcon /> },
-    { title: 'Nearby Hospitals', path: '/hospitals', icon: <LocalHospitalIcon /> },
+    { title: 'Our Clinic', path: '/hospitals', icon: <LocalHospitalIcon /> },
     { title: 'Book Appointment', path: '/appointment', icon: <EventIcon /> },
     { title: 'Contact', path: '/contact', icon: <ContactsIcon /> },
-    { title: 'Admin', path: '/admin', icon: <AdminPanelSettingsIcon /> }
   ];
 
   const handleDrawerToggle = () => {
