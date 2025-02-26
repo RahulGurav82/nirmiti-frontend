@@ -36,7 +36,7 @@ const Admin = () => {
 
   const fetchAppointments = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/appointments');
+      const response = await axios.get('https://nirmiti-server.onrender.com/api/appointments');
       setAppointments(response.data);
     } catch (error) {
       console.error('Error fetching appointments:', error);
@@ -45,7 +45,7 @@ const Admin = () => {
 
   const fetchTreatments = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/treatments');
+      const response = await axios.get('https://nirmiti-server.onrender.com/api/treatments');
       setTreatments(response.data);
     } catch (error) {
       console.error('Error fetching treatments:', error);
@@ -54,7 +54,7 @@ const Admin = () => {
 
   const handleStatusChange = async (appointmentId, status) => {
     try {
-      await axios.patch(`http://localhost:5000/api/appointments/${appointmentId}`, {
+      await axios.patch(`https://nirmiti-server.onrender.com/api/appointments/${appointmentId}`, {
         status
       });
       fetchAppointments();
@@ -68,11 +68,11 @@ const Admin = () => {
     try {
       if (selectedTreatment._id) {
         await axios.put(
-          `http://localhost:5000/api/treatments/${selectedTreatment._id}`,
+          `https://nirmiti-server.onrender.com/api/treatments/${selectedTreatment._id}`,
           selectedTreatment
         );
       } else {
-        await axios.post('http://localhost:5000/api/treatments', selectedTreatment);
+        await axios.post('https://nirmiti-server.onrender.com/api/treatments', selectedTreatment);
       }
       setDialogOpen(false);
       fetchTreatments();

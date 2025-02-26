@@ -10,7 +10,7 @@ const Treatments = () => {
     // Fetch treatments from backend
     const fetchTreatments = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/treatments');
+        const response = await axios.get('https://nirmiti-server.onrender.com/api/treatments');
         setTreatments(response.data);
       } catch (error) {
         console.error('Error fetching treatments:', error);
