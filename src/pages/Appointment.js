@@ -50,7 +50,7 @@ const Appointment = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/api/appointments', formData);
+      await axios.post('https://nirmiti-server.onrender.com/api/appointments', formData);
       setSnackbar({
         open: true,
         message: 'Appointment booked successfully!',
