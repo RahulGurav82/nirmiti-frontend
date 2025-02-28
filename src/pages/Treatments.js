@@ -3,6 +3,8 @@ import { Container, Grid, Card, CardContent, CardMedia, Typography, Button } fro
 import axios from 'axios';
 import '../styles/Treatments.css';
 
+const API_URL = 'https://nirmiti-server.onrender.com';
+
 const Treatments = () => {
   const [treatments, setTreatments] = useState([]);
 
@@ -10,7 +12,7 @@ const Treatments = () => {
     // Fetch treatments from backend
     const fetchTreatments = async () => {
       try {
-        const response = await axios.get('https://nirmiti-server.onrender.com/api/treatments');
+        const response = await axios.get(`${API_URL}/treatments`);
         setTreatments(response.data);
       } catch (error) {
         console.error('Error fetching treatments:', error);

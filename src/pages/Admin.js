@@ -29,6 +29,8 @@ const Admin = () => {
   const [dialogOpen, setDialogOpen] = useState(false);
   const [selectedTreatment, setSelectedTreatment] = useState(null);
 
+  const BASE_URL = process.env.REACT_APP_BASE_URL;
+
   useEffect(() => {
     fetchAppointments();
     fetchTreatments();
@@ -36,7 +38,7 @@ const Admin = () => {
 
   const fetchAppointments = async () => {
     try {
-      const response = await axios.get('https://nirmiti-server.onrender.com/api/appointments');
+      const response = await axios.get(`${BASE_URL}/appointments`);
       setAppointments(response.data);
     } catch (error) {
       console.error('Error fetching appointments:', error);
@@ -45,7 +47,7 @@ const Admin = () => {
 
   const fetchTreatments = async () => {
     try {
-      const response = await axios.get('https://nirmiti-server.onrender.com/api/treatments');
+      const response = await axios.get(`${BASE_URL}/treatments`);
       setTreatments(response.data);
     } catch (error) {
       console.error('Error fetching treatments:', error);
@@ -54,7 +56,7 @@ const Admin = () => {
 
   const handleStatusChange = async (appointmentId, status) => {
     try {
-      await axios.patch(`https://nirmiti-server.onrender.com/api/appointments/${appointmentId}`, {
+      await axios.patch(`${BASE_URL}/appointments/${appointmentId}`, {
         status
       });
       fetchAppointments();
@@ -68,11 +70,11 @@ const Admin = () => {
     try {
       if (selectedTreatment._id) {
         await axios.put(
-          `https://nirmiti-server.onrender.com/api/treatments/${selectedTreatment._id}`,
+          `${BASE_URL}/treatments/${selectedTreatment._id}`,
           selectedTreatment
         );
       } else {
-        await axios.post('https://nirmiti-server.onrender.com/api/treatments', selectedTreatment);
+        await axios.post(`${BASE_URL}/treatments`, selectedTreatment);
       }
       setDialogOpen(false);
       fetchTreatments();

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
@@ -9,9 +9,18 @@ import Admin from './pages/Admin';
 import HealthTips from './pages/HealthTips';
 import FirstAid from './pages/FirstAid';
 import Hospitals from './pages/Hospitals';
+import LoginRegisterModal from './components/LoginRegisterModal'; // Import the modal
 import './styles/App.css';
+import Profile from './pages/Profile';
 
 function App() {
+  const [showAuthModal, setShowAuthModal] = useState(true);
+
+  // Close the modal when the user logs in or registers
+  const handleAuthSuccess = () => {
+    setShowAuthModal(false);
+  };
+
   return (
     <Router>
       <div className="App">
@@ -25,7 +34,15 @@ function App() {
           <Route path="/health-tips" element={<HealthTips />} />
           <Route path="/first-aid" element={<FirstAid />} />
           <Route path="/hospitals" element={<Hospitals />} />
+          <Route path="/profile" element={<Profile />} />
         </Routes>
+
+        {showAuthModal && (
+          <LoginRegisterModal
+            onClose={() => setShowAuthModal(false)}
+            onAuthSuccess={handleAuthSuccess}
+          />
+        )}
       </div>
     </Router>
   );
