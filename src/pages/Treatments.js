@@ -3,7 +3,7 @@ import { Container, Grid, Card, CardContent, CardMedia, Typography, Button } fro
 import axios from 'axios';
 import '../styles/Treatments.css';
 
-const API_URL = 'https://nirmiti-server.onrender.com';
+const API_URL = 'https://nirmiti-server.onrender.com/api';
 
 const Treatments = () => {
   const [treatments, setTreatments] = useState([]);

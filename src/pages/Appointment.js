@@ -51,22 +51,34 @@ const Appointment = () => {
 
   const handleDateChange = (e) => {
     setFormData({
-      ...formData,  
-      date: e.target.value
+      ...formData,
+      date: e ? new Date(e) : null // Convert the selected date to a Date object
     });
   };
-
+  
   const handleTimeChange = (e) => {
     setFormData({
       ...formData,
-      time: e.target.value
+      time: e ? new Date(`1970-01-01T${format(e, 'HH:mm:ss')}Z`) : null // Ensure it's a valid Date format
     });
   };
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    // Format the date and time before sending
+    const formattedDate = formData.date ? format(formData.date, 'yyyy-MM-dd') : null;
+    const formattedTime = formData.time ? format(formData.time, 'HH:mm:ss') : null;
+  
+    const payload = {
+      ...formData,
+      date: formattedDate,
+      time: formattedTime
+    };
+  
     try {
-      await axios.post('https://nirmiti-server.onrender.com/api/appointments', formData);
+      await axios.post('https://nirmiti-server.onrender.com/api/appointments', payload);
       setSnackbar({
         open: true,
         message: 'Appointment booked successfully!',
@@ -177,37 +189,43 @@ const Appointment = () => {
               </select>
             </div>
             
-            {/* Date Field */}
-            <div className="space-y-2">
-              <label htmlFor="date" className="block text-sm font-medium text-green-800 font-serif">
-                Preferred Date <span className="text-amber-700">*</span>
-              </label>
-              <input
-                type="date"
-                id="date"
-                name="date"
-                required
-                value={formData.date || ''}
-                onChange={handleDateChange}
-                className="w-full px-4 py-2 border border-amber-300 rounded-md focus:ring-2 focus:ring-green-500 focus:border-transparent bg-white text-green-900"
-              />
-            </div>
-            
-            {/* Time Field */}
-            <div className="space-y-2">
-              <label htmlFor="time" className="block text-sm font-medium text-green-800 font-serif">
-                Preferred Time <span className="text-amber-700">*</span>
-              </label>
-              <input
-                type="time"
-                id="time"
-                name="time"
-                required
-                value={formData.time || ''}
-                onChange={handleTimeChange}
-                className="w-full px-4 py-2 border border-amber-300 rounded-md focus:ring-2 focus:ring-green-500 focus:border-transparent bg-white text-green-900"
-              />
-            </div>
+            <LocalizationProvider dateAdapter={AdapterDateFns}>
+            <Grid container spacing={2}>
+              {/* Date Picker */}
+              <Grid item xs={12} md={6}>
+                <DatePicker
+                  label="Preferred Date"
+                  value={formData.date}
+                  onChange={handleDateChange}
+                  renderInput={(params) => (
+                    <TextField
+                      {...params}
+                      fullWidth
+                      required
+                      className="w-full px-4 py-2 border border-amber-300 rounded-md focus:ring-2 focus:ring-green-500 focus:border-transparent bg-white text-green-900"
+                    />
+                  )}
+                />
+              </Grid>
+
+              {/* Time Picker */}
+              <Grid item xs={12} md={6}>
+                <TimePicker
+                  label="Preferred Time"
+                  value={formData.time}
+                  onChange={handleTimeChange}
+                  renderInput={(params) => (
+                    <TextField
+                      {...params}
+                      fullWidth
+                      required
+                      className="w-full px-4 py-2 border border-amber-300 rounded-md focus:ring-2 focus:ring-green-500 focus:border-transparent bg-white text-green-900"
+                    />
+                  )}
+                />
+              </Grid>
+            </Grid>
+          </LocalizationProvider>
           </div>
           
           {/* Message Field */}
