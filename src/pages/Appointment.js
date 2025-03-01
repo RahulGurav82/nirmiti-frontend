@@ -57,11 +57,23 @@ const Appointment = () => {
   };
   
   const handleTimeChange = (e) => {
-    setFormData({
-      ...formData,
-      time: e ? new Date(`1970-01-01T${format(e, 'HH:mm:ss')}Z`) : null // Ensure it's a valid Date format
-    });
+    if (e) {
+      const selectedTime = format(e, 'HH:mm:ss'); // Extract HH:mm:ss
+      const fullDateTime = new Date(`1970-01-01T${selectedTime}`); // Ensure it's a full Date object
+  
+      setFormData({
+        ...formData,
+        time: fullDateTime
+      });
+    } else {
+      setFormData({
+        ...formData,
+        time: null
+      });
+    }
   };
+  
+  
   
 
   const handleSubmit = async (e) => {
