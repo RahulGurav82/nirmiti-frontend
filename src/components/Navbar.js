@@ -41,7 +41,7 @@ const Navbar = () => {
           <Link to="/" className="flex items-center">
             <Leaf className="h-8 w-8 text-green-700" />
             <span className="ml-2 text-xl font-semibold text-green-800 font-serif">
-              SanjivaniAyurved
+              Sanjeevan Chikitsalay
             </span>
           </Link>
 

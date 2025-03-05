@@ -32,9 +32,9 @@ const Hospitals = () => {
 
   const hospitals = [
     {
-      name: 'Ayurveda General Hospital',
-      address: '123 Health Street, Mumbai',
-      phone: '+91 98765 43210',
+      name: 'Shree Samartha Krupa Sanjeevan chikitsalay',
+      address: '14 - Laxmi Niwas, Agarkar Road',
+      phone: '+91 9892306092',
       rating: 4.5,
       distance: '2.5 km',
       specialties: ['Panchakarma', 'Ayurvedic Surgery', 'Consultation'],
@@ -100,7 +100,7 @@ const Hospitals = () => {
         gutterBottom
         sx={{ fontWeight: 'bold', mb: 4 }}
       >
-        Nearby Hospitals
+        Our Branches
       </Typography>
 
       <Box sx={{ mb: 4, display: 'flex', justifyContent: 'center' }}>

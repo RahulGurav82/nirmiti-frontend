@@ -9,7 +9,7 @@ const Home = () => {
     {
       title: 'Sujok Therapy',
       description: 'Sujok Therapy is an alternative healing system that combines acupressure, acupuncture, and other natural techniques to promote physical and mental well-being. Developed by South Korean scientist Prof. Park Jae Woo, "Sujok" comes from two ',
-      image: 'https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?w=800&auto=format&fit=crop'
+      image: 'https://res.cloudinary.com/dgu0acngm/image/upload/v1741151217/WhatsApp_Image_2025-03-04_at_9.16.08_PM_r8ximb.jpg'
     },
     {
       title: 'Expert Consultation',
@@ -38,7 +38,7 @@ const Home = () => {
           
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 relative">
             <span className="inline-block relative">
-              Welcome to SanjivaniAyurved
+              Welcome to Sanjeevan Chikitsalay
               <span className="absolute -top-6 -right-6 text-green-300 opacity-50">
                 <Leaf className="w-8 h-8" />
               </span>

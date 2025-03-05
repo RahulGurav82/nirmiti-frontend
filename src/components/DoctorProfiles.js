@@ -10,19 +10,8 @@ const DoctorProfiles = () => {
       specialization: 'Naturopathy Specialist',
       experience: '30+ years experience',
       image: 'https://res.cloudinary.com/dgu0acngm/image/upload/v1740560221/WhatsApp_Image_2025-02-24_at_7.54.01_PM_schpq8.jpg?w=900&auto=format&fit=crop&'
-    },
-    {
-      name: 'Dr. Aditya Sharma',
-      specialization: 'Ayurvedic Physician',
-      experience: '15+ years experience',
-      image: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=800&auto=format&fit=crop'
-    },
-    {
-      name: 'Dr. Rajesh Kumar',
-      specialization: 'Ayurvedic Surgeon',
-      experience: '10+ years experience',
-      image: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=800&auto=format&fit=crop'
     }
+
   ];
 
   const handleRatingChange = (doctorName, newValue) => {
